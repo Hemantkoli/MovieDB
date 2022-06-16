@@ -21,7 +21,6 @@ function MovieDB() {
   useEffect(() => {
     axios.get("/api/movie").then((res) => {
       setMovies(res.data.reverse());
-      console.log(res.data);
     });
   }, []);
   // const handleVideoPlay = (movie) => {
@@ -83,8 +82,7 @@ function MovieDB() {
     setPage(value);
     setPaginated(movies.slice(page * 6, page * 6 + 6));
   };
-  console.log(page);
-  console.log(paginated);
+  
   return (
     <div className="movie">
       <div className="movie-container">

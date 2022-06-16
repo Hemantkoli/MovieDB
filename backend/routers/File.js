@@ -34,7 +34,7 @@ const parser = multer({ storage: storage });
 const videoParser = multer({ storage: videoStorage });
 
 router.post("/video", async (req, res) => {
-  videoParser.single(req.body.data);
+  parser.single(req.body.data);
   // cloud.uploader.upload(
   //   req.body.data,
   //   {
@@ -47,7 +47,6 @@ router.post("/video", async (req, res) => {
   //   }
   // );
   const file = req.file;
-  console.log(file);
   console.log("uploading...");
   const fileData = new File({
     _id: new mongoose.Types.ObjectId(),

@@ -138,7 +138,6 @@ function AddMovie() {
         if (!error && result && result.event === "success") {
           setMovie(result.info.secure_url);
           setVideo(true);
-          console.log(result.info);
         }
       }
     );
@@ -181,10 +180,6 @@ function AddMovie() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(thumbnailFileId)
-    console.log(movie)
-
-
     if (thumbnailFileId && movie) {
       const config = {
         headers: {
@@ -205,16 +200,13 @@ function AddMovie() {
         .then((res) => {
           alert("Movie added succefully");
           history.push("/");
-          console.log(res.data);
         })
         .catch((err) => console.log(err));
     } else {
       alert("Upload assests first...");
     }
   };
-  console.log(movie, thumbnail);
-  console.log(thumbnailFileId);
-  console.log(name, language, year);
+  
   function CircularProgressWithLabel(props) {
     return (
       <Box position="relative" display="inline-flex">
